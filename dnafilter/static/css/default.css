@@ -1,0 +1,73 @@
+﻿/*
+Copyright (c) 2010, Yahoo! Inc. All rights reserved.
+Code licensed under the BSD License:
+http://developer.yahoo.com/yui/license.html
+version: 2.8.1
+*/
+html{color:#333;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var,optgroup{font-style:inherit;font-weight:inherit;}del,ins{text-decoration:none;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:baseline;}sub{vertical-align:baseline;}legend{color:#333;}input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}input,button,textarea,select{*font-size:100%;}
+
+/* Start Styles */
+body { font-family: Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; margin: 0 auto; padding: 40px 10px; position: relative; width: 940px; }
+a { color: #7fc140; text-decoration: underline; }
+a:hover { color: #666; }
+
+/* Sprite */
+h1 a,
+.footer-logos a { background-image: url(../img/images/dnafilter-sprite.png); background-repeat: no-repeat; display: block; text-indent: -9999px; }
+
+/* Forms */
+input[type="text"],
+input[type="button"],
+input[type="submit"],
+select,
+textarea { background: #eee; border: 1px solid #999; border-radius: 5px; box-shadow: inset 0 0 10px rgba(0,0,0,0.1); color: #666; padding: 8px 10px; }
+input:focus,
+select:focus,
+textarea:focus { border-color: #80c341; outline: 0; }
+input[type="button"],
+input[type="submit"] { border: 0; box-shadow: inset 0 0 10px rgba(0,0,0,0.5); color: #fff; text-shadow: 0 1px 0 rgba(0,0,0,0.5); }
+input[type="button"] { background: #939597; padding: 9px 20px; }
+input[type="button"]:hover,
+input[type="submit"] { background: #80c341; cursor: pointer; }
+input[type="submit"] { font-size: 18px; padding: 10px 40px; text-transform: uppercase; }
+input[type="submit"]:hover { background: #939597; }
+
+/* Content */
+h1 a { height: 160px; margin: 0 auto; width: 300px; }
+
+.top-shadow { background: url(../img/images/bg-top-shadow.png); height: 18px; left: 43px; position: absolute; top: 282px; width: 874px; }
+
+.nav { height: 40px; margin: 60px auto 40px; width: 640px; }
+	.nav a { background: #939597; border-radius: 5px 5px 0 0; box-shadow: inset 0 0 10px rgba(0,0,0,0.5); color: #fff; display: block; float: left; height: 30px; margin: 0 10px; padding: 10px 0 0; text-align: center; text-decoration: none; text-shadow: 0 1px 0 rgba(0,0,0,0.5); text-transform: uppercase; width: 140px; }
+	.nav a:hover { background: #6a6c6d; }
+	.nav .active a,.nav .active a:hover { background: #80c341; cursor: default; }
+
+.content { padding: 0 0 40px; }
+
+.dnafilter,
+.other-data { float: left; width: 460px; }
+
+	.dnafilter legend { font-size: 24px; padding: 0 0 20px; }
+	.dnafilter label { padding: 0 0 0 10px; }
+	.dnafilter input[type="button"] { margin: 0 0 0 20px; }
+	.dnafilter textarea { height: 258px; margin: 35px 0 20px; width: 438px; }
+	.dnafilter input[type="file"] { margin: 20px 0 0; }
+
+.other-data { padding: 0 0 0 20px; }
+	.other-data fieldset { margin: 20px 0 0; padding: 0 0 20px; }
+	.other-data fieldset:first-child { border-bottom: 1px solid #999; margin: 100px 0 20px; }
+	.other-data legend { font-size: 18px; padding: 0 0 20px; }
+	.other-data br { display: none; }
+	.other-data label { float: left; padding: 8px 0 0; width: 80px; }
+	.other-data input { float: left; margin: 0 20px 10px 0; width: 98px; }
+	.other-data .nucleotides { display: block; float: none; padding: 0 0 20px; width: auto; }
+	.other-data .nucleotides input  { float: none; margin: 0 0 30px; text-align: center; width: 40px; }
+
+form > fieldset:last-child { clear: both; padding: 40px 0 0; text-align: center }
+	
+.footer-logos a { float: left; height: 60px; margin: 0 20px 40px 0; }
+.logo-conicet { background-position: 0 -160px; width: 100px; }
+.logo-conicet:hover { background-position: 0 -220px; }
+.logo-globant { background-position: -100px -160px; width: 260px; }
+.logo-globant:hover { background-position: -100px -220px; }
+.footer-copy { color: #666; float: right; font-size: 12px; padding: 30px; }

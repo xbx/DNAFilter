@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>DNAFilter</title>
+<link rel="stylesheet" type="text/css" href="site_media/css/default.css" />
+</head>
+<body>
+
+<h1><a href="#">DNAFilter</a></h1>
+
+<div class="top-shadow"></div>
+<ul class="nav">
+	<li class="active"><a href="#home">Home</a></li>
+	<li><a href="#about">About</a></li>
+	<li><a href="#source">Source Code</a></li>
+	<li><a href="#admin">Admin</a></li>
+</ul>
+
+{% block content %}{% endblock %}
+
+<p class="footer-logos"><a href="#" class="logo-conicet">Conicet</a><a href="#" class="logo-globant">Globant</a></p>
+<p class="footer-copy">Footer for disclaimer and copyright info.</p>
+
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script> -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="site_media/jscolor/jscolor.js" type="text/javascript"></script>
+
+<script src="site_media/js/jquery.tabify.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    
+    $('.nav').tabify();
+    
+    var newclick = function () {
+      var sample_seq = ">110524-40_E14_PET1-2-T7promoter.ab1 1288\nNNTAANNGCGGCGCGATTCGCCCTTTGGATTCTCGGGCACCAAGGTAATC\nACAGCCTTGCTTGGAACCACTGTAGGCACCAAGGTTGAAAGACGATGGTA\nGTGAGACTGTAGGCACCATCAATC";
+      $('#seq_text_area').val(sample_seq);
+      var sample_isize = '5';
+      $('#isize').val(sample_isize);
+      var sample_linker1 = 'ATTCTCGGGCACCAAGGT';
+      $('#linker-three').val(sample_linker1);
+      var sample_linker2 = 'CTGTAGGCACCATCAATC';
+      $('#linker-five').val(sample_linker2);
+      var sample_connector = 'CTGTAGGCACCAAGGT';
+      $('#connector').val(sample_connector);
+      var sample_color_vector = '00FF00';
+      $('#color-vector').val(sample_color_vector);
+      $('#color-vector').css('background-color', '#'+sample_color_vector);
+      var sample_color_linker = 'FC9EFF';
+      $('#color-linker').val(sample_color_linker);
+      $('#color-linker').css('background-color', '#'+sample_color_linker);
+      var sample_color_connector = 'FFFF00';
+      $('#color-connector').val(sample_color_connector);
+      $('#color-connector').css('background-color', '#'+sample_color_connector);
+      var sample_color_mirna = 'FF1100';
+      $('#color-mirna').val(sample_color_mirna);
+      $('#color-mirna').css('background-color', '#'+sample_color_mirna);
+    };
+    // clears onclick then sets click using jQuery
+    $("#sample_data").attr('onclick', '').click(newclick);
+});
+</script>
+
+
+
+
+
+
+</body>
+</html>

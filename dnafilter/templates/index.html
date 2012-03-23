@@ -1,0 +1,72 @@
+﻿{% extends "base.html" %}
+
+{% block content %}
+
+<div id="home" class="content">
+
+<form action="filter" enctype="multipart/form-data" method="post">{% csrf_token %}
+	<fieldset class="dnafilter">
+		<legend>DNAFilter</legend>
+		<input type="radio" checked name="sequence-fasta" id="sequence-fasta" value="seqs" /><label for="sequence-fasta">Paste sequence(s) in <a href="http://en.wikipedia.org/wiki/FASTA_format">FASTA format</a></label><br />
+		<input type="button" value="Fill with sample data" id="sample_data" /><br />
+		<textarea rows="10" cols="30" name="seqs" id="seq_text_area"></textarea><br />
+		<input type="radio" name="sequence-file" id="sequence-file" /><label for="sequence-file">Or enter sequence(s) in a file (plain or zipped)</label><br />
+		<input type="file" />
+	</fieldset>
+	
+	<div class="other-data">
+		<fieldset>
+			<legend>Parameters</legend>
+			<label for="size-nucleotides" class="nucleotides">Show inserts with size at least: 
+            
+            <!-- <input type="text" name="size-nucleotides" id="size-nucleotides" /> -->
+			<input id="isize" type="number" name="isize" min="3" max="40" value="5" /> nucleotides</label><br />
+            
+            <label for="linker-three">Linker 3'</label><br />
+			<input type="text" name="linker1" id="linker-three" /><br />
+			<label for="linker-five">Linker 5'</label><br />
+			<input type="text" name="linker2" id="linker-five" /><br />
+			<label for="connector">Connector</label><br />
+			<input type="text" name="connector" id="connector" /><br />
+			<label for="filter-by">Filter by</label><br />
+			<select name="filter-by" id="filter-by">
+                
+            {% for db in db_list %}
+              <option value="{{ db.db_path }}">{{ db }}</option>
+            {% endfor %}
+                
+                
+			</select>
+		</fieldset>
+		<fieldset>
+			<legend>Colors</legend>
+			<label for="color-vector">Vector</label><br />
+			<input type="text" name="vector-color" id="color-vector" class="color" /><br />
+			<label for="color-linker">Linker</label><br />
+			<input type="text" name="linker-color" id="color-linker" class="color" /><br />
+			<label for="color-connector">Connector</label><br />
+			<input type="text" name="connector-color" id="color-connector" class="color" /><br />
+			<label for="color-mirna">miRNA</label><br />
+			<input type="text" name="mirna-color" id="color-mirna" class="color" />
+		</fieldset>
+	</div>
+	<fieldset><input type="submit" value="Filter" /></fieldset>
+</form>
+
+</div>
+
+<div id="about" class="content">
+	<p>This is the about tab</p>
+</div>
+
+<div id="source" class="content">
+	<p>This is the source tab</p>
+</div>
+
+<div id="admin" class="content">
+	<p><img src="http://29.media.tumblr.com/tumblr_lltzgnHi5F1qzib3wo1_400.jpg" /></p>
+</div>
+
+{% endblock %}
+
+

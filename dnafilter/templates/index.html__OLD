@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+
+
+  <form action="filter" enctype="multipart/form-data" method="post">{% csrf_token %}
+      
+    <fieldset>
+      <legend>Input</legend>
+
+      <p>
+        <label>
+          <input type="radio" name="input_method" value="seqs" checked>
+          Paste sequences in FASTA format:
+        </label>
+
+<a class="btn btn-primary btn-large" id="sampledata">
+      Fill with sample data
+</a>
+
+        <br>
+        <textarea name="seqs" rows="25" cols="80"></textarea>
+      </p>
+
+      <p>
+        <label>
+          <input type="radio" name="input_method" value="seqdatafile">
+          Or enter the sequence(s) in a file:
+        </label>
+        <br>
+        <input type="file" name="seqdatafile">
+      </p>
+    </fieldset>
+
+    <fieldset>
+      <legend>Parameters</legend>
+
+      <p>
+        <label>Show inserts with size at least: <input id="isize" type="number" name="isize" min="3" max="40" value="5" /> nt.</label>
+      </p>
+
+      <p>
+        <label>Connector: <input name="connector" type="text"></label>
+      </p>
+
+      <p>
+        <label>Linker 3': <input name="linker1" type="text"></label>
+        <label>Linker 5': <input name="linker2" type="text"></label>
+      </p>
+
+      <p>
+        <label>
+          Filter by:
+          <select name="blastdb">
+              {% for db in db_list %}
+              <option value="{{ db }}">{{ db }}</option>
+              {% endfor %}
+              
+          </select>
+        </label>
+      </p>
+
+      <p>
+        <label>
+          Order:
+          <select name="order">
+            <option value="ft">User -&gt; Filter -&gt; Trim</option>
+            <option value="tf">User -&gt; Trim -&gt; Filter</option>
+            <option value="tandf">User -&gt; Trim and User -&gt; Filter</option>
+          </select>
+        </label>
+      </p>
+    </fieldset>
+
+    <fieldset>
+      <legend>Colors</legend>
+
+      <p>
+        <label>Vector: <input name="vector-color" type="text" class="colorpicker"></label>
+      </p>
+
+      <p>
+        <label>Connector: <input name="connector-color" type="text" class="colorpicker"></label>
+      </p>
+
+      <p>
+        <label>Linker: <input name="linker-color" type="text" class="colorpicker"></label>
+      </p>
+
+      <p>
+        <label>miRNA: <input name="mirna-color" type="text" class="colorpicker"></label>
+      </p>
+    </fieldset>
+
+    <p class="submit">
+      <input type="submit" value="Filter">
+    </p>
+  </form>
+{% endblock %}

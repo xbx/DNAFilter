@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style type="text/css">
+  span.vector {
+    background-color: #{{ form.colors.vector }};
+  }
+  span.connector {
+      background-color: #{{ form.colors.connector }};
+  }
+  span.linker {
+    background-color: #{{ form.colors.linker }};
+  }
+  span.mirna {
+    background-color: #{{ form.colors.mirna }};
+  }
+</style>
+
+Original sequences:<br/><p></p>
+<pre>{{ form.seqs }}</pre>
+
+<br />
+
+Filtered:
+
+<pre>
+{{ form.finalout }}
+</pre>
+
+<br />
+
+Mapped:
+
+<pre>
+{{ form.finalout_color2|safe }}
+</pre>
+
+<br />
+
+Target seqs:
+
+<pre>
+{{ form.target_seqs|safe }}
+</pre>
+
+<br />
+
+{% endblock %}
