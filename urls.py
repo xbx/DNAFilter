@@ -11,7 +11,7 @@ urlpatterns = patterns('',
     
     url(r'^$', 'dnafilter.views.index'),
     url(r'^site_media/(?P<path>.*)$', 'django.views.static.serve',
-    {'document_root': '/home/sebastian/Projects/dnafilter/dnafilter_d2/dnafilter/static'}),
+    {'document_root': '/var/www/dnafilterD/dnafilter/static'}),
     url(r'^filter$', 'dnafilter.views.filter'),
 
     (r'^admin/', include(admin.site.urls)),

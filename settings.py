@@ -1,6 +1,6 @@
 # Django settings for dnafilter_d2 project.
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
