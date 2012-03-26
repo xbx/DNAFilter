@@ -347,17 +347,25 @@ class PaintSeq(object):
 
     def _apply_colors(self, seq, ext_paint_dict, seq_width):
         """ """
-        new_seq = bytearray()
-        for i, x in enumerate(seq):
-            if i in ext_paint_dict and (i+1) % seq_width == 0:
-                new_seq += '<span class="%s">' % ext_paint_dict[i] + x + '</span><br>'
-            elif i in ext_paint_dict and (i+1) % seq_width != 0:
-                new_seq += '<span class="%s">' % ext_paint_dict[i] + x + '</span>'
-            elif i not in ext_paint_dict and (i+1) % seq_width == 0:
-                new_seq += x+'<br>'
+        grouped_seq = []
+        current_group = []
+        current_dict = ext_paint_dict[0]
+        for i, value in enumerate(seq):
+            if current_dict == ext_paint_dict[i]:
+                current_group.append(value)
             else:
-                new_seq += x
-        return str(new_seq)
+                grouped_seq.append({current_dict: current_group})
+                current_group = []
+                current_dict = ext_paint_dict[i]
+                current_group.append(value);
+        grouped_seq.append({current_dict: current_group})
+
+        colored_seq = ""
+        for i, item in enumerate(grouped_seq):
+            current = item.popitem()
+            colored_seq += "<span class='%s'>" % current[0] + "".join(current[1]) + "</span>"
+
+        return colored_seq
 
     def _getmirna_colors(self, d, isize):
         """

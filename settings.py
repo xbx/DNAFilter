@@ -85,6 +85,7 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    'django_pdb',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
